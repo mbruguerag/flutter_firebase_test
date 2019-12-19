@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:Monefy/ProfilePage.dart';
 
 //BUENA
 void main() => runApp(Monefy());
@@ -18,8 +19,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+
   @override
   Widget build(BuildContext context) {
+    final divider = Container(
+      height: 20,
+      color: Colors.transparent,
+    );
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -35,8 +43,40 @@ class _ProfilePageState extends State<ProfilePage> {
           )
         ],
       ),
-      body: Container(),
+
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge user
+        children: <Widget>[
+          Container(
+            height: 150,
+            padding: EdgeInsets.only(bottom: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/usuario.jpg')
+                  ),
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 4,
+                  ),
+                ),
+              ),
+              Text('nom user',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                  )
+            ],
+          ),
+          )
+        ],
+      ),
     );
   }
 }
-
