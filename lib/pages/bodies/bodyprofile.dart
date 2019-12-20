@@ -1,58 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
+class BodyProfile extends StatefulWidget {
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _BodyProfileState createState() => _BodyProfileState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _BodyProfileState extends State<BodyProfile> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0), // here the desired height
-        child: AppBar(
-          elevation: 0.0,
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: IconButton(
-                icon: Icon(
-                  Icons.exit_to_app,
-                  size: 40,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Column(
+    return Column(
         crossAxisAlignment:
             CrossAxisAlignment.stretch, // centrem la imatge user
         children: <Widget>[
           Expanded(flex: 4, child: Containerperfil()),
           Expanded(flex: 5, child: Containerop()),
         ],
-      ),
-      
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people, color: Colors.black54),
-            title: Text('Contacts', style: TextStyle(color: Colors.black54),),
-            
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Profile'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.payment),
-            title: Text('Events'),
-          ),
-        ],
-      ),
-    );
+      );
   }
 }
 
