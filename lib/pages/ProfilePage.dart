@@ -9,11 +9,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final divider = Container(
-      height: 20,
-      color: Colors.transparent,
-    );
-
+    
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
