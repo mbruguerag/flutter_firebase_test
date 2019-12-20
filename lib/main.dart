@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge user
         children: <Widget>[
           Container(
-            height: 150,
+            height: 200,
             padding: EdgeInsets.only(bottom: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -71,7 +71,28 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: TextStyle(
                     color: Colors.black,
                   ),
-                  )
+                  ),
+
+              Container(
+                color: Colors.white,
+                padding: EdgeInsets.symmetric(vertical:10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text('diners €',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,                           
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+
+              )
             ],
           ),
           )
