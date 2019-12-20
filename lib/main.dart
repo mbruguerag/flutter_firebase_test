@@ -10,7 +10,7 @@ class Monefy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.teal),
+      theme: ThemeData(primaryColor: Colors.white),
       routes: {
         '/perfil': (context) => ProfilePage(),
         '/contactes': (context) => ContactPage(),
