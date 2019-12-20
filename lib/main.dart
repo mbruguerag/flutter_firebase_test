@@ -85,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Container(
                   // VERMELL
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  color: Colors.red,
+                  color: Colors.red[300],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
