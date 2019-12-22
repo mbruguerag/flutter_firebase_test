@@ -12,19 +12,38 @@ class _OperacionesState extends State<Operaciones> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.pink,
-        appBar:  TabBar(
-          dragStartBehavior: DragStartBehavior.down,
-            tabs: [
-              Tab(text: 'Operaciones'),
-              Tab(text: 'Pendientes'),
-            ],
-          ),
-        
+        appBar: TabBar(
+          tabs: [
+            Tab(text: 'Operaciones'),
+            Tab(text: 'Pendientes'),
+          ],
+        ),
         body: TabBarView(
           children: [
-            Container(color:Colors.blue),
-            Container(color:Colors.orange),
+            ListView(
+              children: const <Widget>[
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+              ],
+            ),
+            ListView(
+              children: const <Widget>[
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+              ],
+            ),
           ],
         ),
       ),
@@ -59,7 +78,6 @@ class _ContainerperfilState extends State<Containerperfil> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
       child: Padding(
         padding: const EdgeInsets.only(top: 20.0),
         child: Column(
@@ -84,7 +102,6 @@ class _ContainerperfilState extends State<Containerperfil> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                color: Colors.purple,
                 child: Text(
                   'nom user',
                   style: TextStyle(
@@ -95,7 +112,6 @@ class _ContainerperfilState extends State<Containerperfil> {
               ),
             ),
             Container(
-              color: Colors.blue,
               child: Text(
                 '300 €',
                 style: TextStyle(
@@ -107,21 +123,6 @@ class _ContainerperfilState extends State<Containerperfil> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class Containerop extends StatefulWidget {
-  @override
-  _ContaineropState createState() => _ContaineropState();
-}
-
-class _ContaineropState extends State<Containerop> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.yellow,
-      //OPERACIONES
     );
   }
 }
