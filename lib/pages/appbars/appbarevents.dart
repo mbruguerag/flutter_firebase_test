@@ -3,15 +3,11 @@ import 'package:flutter/material.dart';
 
 AppBar headerevents() {
   return AppBar(
-    title: Text('events'),
-    elevation: 0.0,
-    centerTitle: true,
-    actions: <Widget>[
-      IconButton(
-        onPressed: () {},
-        icon: Icon(Icons.search),
-        color: Colors.red,
-      )
-    ],
+    backgroundColor: Colors.white,
+          title: Padding(
+            padding: const EdgeInsets.only(left:115),
+            child: Image.asset('assets/monefylogo.jpg', scale:1.5),
+          ),
+         elevation: 0.0,
   );
 }
