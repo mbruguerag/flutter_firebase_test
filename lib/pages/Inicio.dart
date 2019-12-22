@@ -41,8 +41,8 @@ class _InicioState extends State<Inicio> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.people, color: Colors.black54,) ,
-            title: Text('Contacts', style: TextStyle(color: Colors.black54),),
+            icon: Icon(Icons.people,) ,
+            title: Text('Contacts'),
             
           ),
           BottomNavigationBarItem(
