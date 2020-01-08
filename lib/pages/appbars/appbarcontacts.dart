@@ -1,17 +1,30 @@
+
+
+import 'package:firebase/pages/appbars/appbaraddcontacs.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase/pages/bodies/bodyaddcontacts.dart';
+import 'package:firebase/main.dart';
 
 AppBar headercontacts() {
   return AppBar(
     backgroundColor: Colors.white,
+        
           leading: IconButton( //posar icona a l'esquerra
-            onPressed: (){},
+            onPressed: (){
+            BuildContext context;
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> headeraddcontacts() ));
+            },
             icon: Icon(Icons.add),
             color: Colors.black,
           ) ,
 
           actions: <Widget>[
             IconButton(
-              onPressed: (){},
+              onPressed: (){
+                AlertDialog(
+
+                );
+              },
               icon: Icon(Icons.delete),
               color: Colors.black,
             ),

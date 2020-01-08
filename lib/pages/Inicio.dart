@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase/pages/appbars/appbarcontacts.dart';
+import 'package:firebase/pages/appbars/appbaraddcontacs.dart';
 import 'package:firebase/pages/appbars/appbarprofile.dart';
 import 'package:firebase/pages/appbars/appbarevents.dart';
 import 'package:firebase/pages/bodies/bodycontacts.dart';
 import 'package:firebase/pages/bodies/bodyprofile.dart';
 import 'package:firebase/pages/bodies/bodyevents.dart';
+import 'package:firebase/pages/bodies/bodyaddcontacts.dart';
 
 class Inicio extends StatefulWidget {
   @override
@@ -17,13 +19,16 @@ class _InicioState extends State<Inicio> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
    List<AppBar>_appbartype = <AppBar>[
     headercontacts(),
+    headeraddcontacts(),
     headerprofile(),
     headerevents(),
+    
   ];
    List<Widget> _widgetOptions = <Widget>[
     BodyContacts(),
     BodyProfile(),
     BodyEvents(),
+    BodyAddContacts(),
   ];
 
   void _onItemTapped(int index) {

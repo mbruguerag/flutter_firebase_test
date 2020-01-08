@@ -1,6 +1,9 @@
+import 'package:firebase/basedades.dart' as db;
 import 'package:flutter/material.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/contactdata.dart';
 import 'package:flutter/rendering.dart';
+
 
 
 class BodyContacts extends StatefulWidget {
@@ -31,11 +34,12 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
 
  @override
   Widget build(BuildContext context)  {
-
+    
     return ListView.builder(
+      
       itemCount: contactes.length,
       itemBuilder: (context,i)=> new Column(
-
+      
         children: <Widget>[
           Card(
           color: Colors.white60,
@@ -172,3 +176,68 @@ class _ContainerContactsState extends State<ContainerContacts> {
   }
 }
 
+
+
+/*
+class BodyContacts extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+   final Contact contact= ModalRoute.of(context).settings.arguments; 
+   return Scaffold(
+     appBar: AppBar(title: Text(contact.nom)),
+     body: StreamBuilder(
+       stream: db.getContacts(),
+       builder: (context, AsyncSnapshot<List<Contact>> snapshot){
+         if (snapshot.hasError){
+           return Center(
+             child: Text(
+               snapshot.error.toString(),
+               style: TextStyle(
+                 backgroundColor: Colors.red,
+               )
+             ) ,);
+         }
+         if (!snapshot.hasData){
+           return Center(child: CircularProgressIndicator(),
+           );
+         }
+
+         List<Contact> contacts = snapshot.data;
+         return ListView.builder(
+           itemCount: contacts.length,
+           itemBuilder: (context,index){
+              return ContactTile(contacts[index]);
+           }
+         );
+       },
+     ),
+   );
+  }
+  
+}
+
+class ContactTile extends StatelessWidget{
+  final Contact contact;
+
+  const ContactTile(this.contact);
+
+  @override
+  Widget build(BuildContext context){
+    return ListTile(
+    leading: Container(
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        shape: BoxShape.circle,
+      ),
+    ),
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(contact.nom),
+       
+      ],
+    )
+    );
+  }
+}
+*/
