@@ -19,7 +19,6 @@ class _InicioState extends State<Inicio> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
    List<AppBar>_appbartype = <AppBar>[
     headercontacts(),
-    headeraddcontacts(),
     headerprofile(),
     headerevents(),
     
@@ -28,7 +27,6 @@ class _InicioState extends State<Inicio> {
     BodyContacts(),
     BodyProfile(),
     BodyEvents(),
-    BodyAddContacts(),
   ];
 
   void _onItemTapped(int index) {
