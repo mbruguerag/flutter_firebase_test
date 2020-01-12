@@ -54,7 +54,7 @@ class _InicioState extends State<Inicio> {
             title: Text('Profile'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.payment),
+            icon: Icon(Icons.event),
             title: Text('Events'),
           ),
         ],
