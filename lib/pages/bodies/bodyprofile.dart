@@ -5,8 +5,6 @@ import 'package:firebase/contactdata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-
-
 class Operaciones extends StatefulWidget {
   @override
   _OperacionesState createState() => _OperacionesState();
@@ -83,52 +81,78 @@ class Containerperfil extends StatefulWidget {
 class _ContainerperfilState extends State<Containerperfil> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              width: 110,
-              height: 110,
-              //imatge usuari
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/usuario.jpg'),
-                  fit: BoxFit.cover,
-                ),
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.black,
-                  width: 4,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Text(
-                  'nom user',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
+    return Row(
+      children: <Widget>[
+        Expanded(flex: 3, child: Container(color: Colors.white)),
+        Expanded(
+          flex: 3,
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 110,
+                    height: 110,
+                    //imatge usuari
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/usuario.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 4,
+                      ),
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: Text(
+                        'nom user',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      '300 €',
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Container(
-              child: Text(
-                '300 €',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        Expanded(
+          flex: 3,
+          child: Container(
+            color: Colors.white,
+            child: Align(
+              child: IconButton(
+                icon: Icon(
+                  Icons.exit_to_app,
+                  
+                ),
+                onPressed: (){
+                  Navigator.of(context).pushNamed('/login');
+                },
+              ),
+              alignment: Alignment.topRight,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

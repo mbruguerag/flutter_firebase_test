@@ -16,11 +16,10 @@ class Monefy extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.white),
-      home: LogIn(),
-
-      //initialRoute: LogIn(),
+      //home: LogIn(),
+      initialRoute: '/login',
       routes: <String,WidgetBuilder>{
-        
+        '/login':(context)=>LogIn(),
         '/pay':(context)=> PayContact(),
         '/request':(context)=> RequestContact(),
         '/inicio' : (context) => Inicio(),
