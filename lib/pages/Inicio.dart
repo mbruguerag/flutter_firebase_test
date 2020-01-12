@@ -38,6 +38,7 @@ class _InicioState extends State<Inicio> {
   }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
        appBar: _appbartype.elementAt(_selectedIndex),    
        body: Center(

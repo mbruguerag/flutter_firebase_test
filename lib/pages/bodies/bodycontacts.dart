@@ -1,4 +1,5 @@
-import 'package:firebase/basedades.dart' as db;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase/pages/bodies/bodyaddcontacts.dart';
 import 'package:flutter/material.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/contactdata.dart';
@@ -14,12 +15,17 @@ class BodyContacts extends StatefulWidget {
 class _BodyContactsState extends State<BodyContacts> {
   @override
   Widget build(BuildContext context) {
+        final db = Firestore.instance;
+  
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
       children: <Widget>[
         Expanded(flex:1, child: ContainerSearch()),
         Expanded(flex: 0, child: ContainerContacts()),
         Expanded(flex:7, child: BodySearchContacts()),
+        Expanded(flex:2, child: ContainerBotons()),
+
+
       ],
     );
   }
@@ -32,11 +38,18 @@ class BodySearchContacts extends StatefulWidget {
 
 class _BodySearchContactsState extends State<BodySearchContacts> {
 
+ TextEditingController _controller;
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
  @override
   Widget build(BuildContext context)  {
-    
+     
     return ListView.builder(
-      
+
       itemCount: contactes.length,
       itemBuilder: (context,i)=> new Column(
       
@@ -47,9 +60,10 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
               leading: IconButton(
                 icon: Icon(Icons.chevron_left),
                 tooltip: 'Request',
-                                  
+                onPressed:(){
+                  Navigator.pushNamed(context, '/request');
+                },                 
                 ),
-                
                 title: Row(
                   children: <Widget>[
                     CircleAvatar(
@@ -66,6 +80,10 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
                 trailing: IconButton(
                   icon: Icon(Icons.chevron_right),
                   tooltip:"Pay",
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/pay');
+
+                  },
                 ),
               ),
              ),
@@ -134,6 +152,14 @@ class ContainerSearch extends StatefulWidget {
 }
 
 class _ContainerSearchState extends State<ContainerSearch> {
+   TextEditingController _controller;
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -141,12 +167,12 @@ class _ContainerSearchState extends State<ContainerSearch> {
       child: Padding(
     padding: const EdgeInsets.all(8.0),
     child: TextField(
+      controller: _controller,
       decoration: InputDecoration(
         hintText: 'Search Contacts...'
       ),
     ),
   ),
-  
   );
 
   }
@@ -175,6 +201,38 @@ class _ContainerContactsState extends State<ContainerContacts> {
 
   }
 }
+
+class ContainerBotons extends StatefulWidget {
+  @override
+  _ContainerBotonsState createState() => _ContainerBotonsState();
+}
+
+class _ContainerBotonsState extends State<ContainerBotons> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[              
+              SizedBox(height: 20,width: 80,),
+              RaisedButton(
+                color: Colors.green,
+                onPressed: (){
+                  Navigator.pushNamed(context, '/add');
+
+                },
+                textColor: Colors.white,
+                  child: Container(
+                    child: Text('Add Contact'),
+                    padding: EdgeInsets.all(10.0),
+                 ),      
+              ),
+            ],
+          
+        );
+    }      
+  }
+
 
 
 

@@ -1,13 +1,11 @@
-import 'package:firebase/contactdata.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
-class BodyAddContacts extends StatefulWidget {
+class BodyLogIn extends StatefulWidget {
   @override
-  _BodyAddContactsState createState() => _BodyAddContactsState();
+  _BodyLogInState createState() => _BodyLogInState();
 }
 
-class _BodyAddContactsState extends State<BodyAddContacts> {
+class _BodyLogInState extends State<BodyLogIn> {
   
   @override
   Widget build(BuildContext context) {
@@ -22,9 +20,8 @@ class _BodyAddContactsState extends State<BodyAddContacts> {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
       children: <Widget>[
-        Expanded(flex:0, child: ContainerNewContact()),
-        Expanded(flex:0, child: ContainerInfoContact()),
-        Expanded(flex:0,child: ContainerBotons(),)
+        Expanded(flex:0, child: ContainerLogIn()),
+        Expanded(flex:0,child: ContainerBotoLogIn(),)
           ],
         ),
       ),
@@ -32,55 +29,31 @@ class _BodyAddContactsState extends State<BodyAddContacts> {
   }
 }
 
-class ContainerNewContact extends StatefulWidget {
+class ContainerLogIn extends StatefulWidget {
   @override
-  _ContainerNewContactState createState() => _ContainerNewContactState();
+  _ContainerLogInState createState() => _ContainerLogInState();
 }
 
-class _ContainerNewContactState extends State<ContainerNewContact> {
+class _ContainerLogInState extends State<ContainerLogIn>{
+  
   @override
-  Widget build(BuildContext context) {
-
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(15),
-            child: Text(
-              'New Contact',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ) ,),
-            ),
-          ],
-        );
-    }
-}
-
-class ContainerInfoContact extends StatefulWidget{
-
-  @override
-  _ContainerInfoContactState createState() => _ContainerInfoContactState();
-
-}
-
-class _ContainerInfoContactState extends State<ContainerInfoContact>{
-
-@override
 
 Widget build(BuildContext context) {
   
-  final TextEditingController nomCtrl = TextEditingController();
-  final TextEditingController cognomCtrl = TextEditingController();
+  final TextEditingController usernameCtrl = TextEditingController();
+  final TextEditingController passwordCtrl = TextEditingController();
   
     return Column(
       children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(bottom: 30),
+          child: Image.asset('assets/usuario.jpg', scale:4.0),
+        ),
          Container(
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Name',
+                  'Username',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -97,7 +70,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Name contact',
+                        labelText: 'Username',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -108,7 +81,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Surname',
+                  'Password',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -121,11 +94,11 @@ Widget build(BuildContext context) {
                 child: SizedBox(
                       height: 50.0,
                       child: TextFormField(
-                      //obscureText: true,
+                      obscureText: true,
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Surname Contact',
+                        labelText: 'Password',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -137,61 +110,37 @@ Widget build(BuildContext context) {
   }
 }
 
-class ContainerBotons extends StatefulWidget {
+class ContainerBotoLogIn extends StatefulWidget {
   @override
-  _ContainerBotonsState createState() => _ContainerBotonsState();
+  _ContainerBotoLogInState createState() => _ContainerBotoLogInState();
 }
 
-class _ContainerBotonsState extends State<ContainerBotons> {
+class _ContainerBotoLogInState extends State<ContainerBotoLogIn> {
   @override
   Widget build(BuildContext context) {
-    return Row(
+    
+        
+          //columna Add
+         return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          
-          //columna Add
-          Column(
-            
+        
             children:<Widget>[
               
               SizedBox(height: 20,width: 80,),
               RaisedButton(
-                color: Colors.green,
-                onPressed: (){},
+                color: Colors.grey,
+                onPressed: (){
+                  Navigator.pushNamed(context, '/inicio');
+                },
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Accept'),
+                    child: Text('LogIn'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
             ],
           
-        ),
-      
-         //columna cancel 
-          Column(
-            children: <Widget>[
-
-                SizedBox(height: 20,width: 80,),
-                Container(
-                  child: RaisedButton(
-                    color: Colors.red,
-                    onPressed: (){
-                      Navigator.pop(context);
-
-                    },
-                    textColor: Colors.white,
-                    child: Container(
-                      child: Text('Cancel'),
-                      padding: EdgeInsets.all(10.0),
-                    ),      
-                  ),
-                ),
-              ],
-            ),
-                
-        ],
-    );
+        );   
   }
 }

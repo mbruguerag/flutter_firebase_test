@@ -2,12 +2,14 @@ import 'package:firebase/contactdata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class BodyAddContacts extends StatefulWidget {
+
+
+class BodyRequestContacts extends StatefulWidget {
   @override
-  _BodyAddContactsState createState() => _BodyAddContactsState();
+  _BodyRequestContactsState createState() => _BodyRequestContactsState();
 }
 
-class _BodyAddContactsState extends State<BodyAddContacts> {
+class _BodyRequestContactsState extends State<BodyRequestContacts> {
   
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,8 @@ class _BodyAddContactsState extends State<BodyAddContacts> {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
       children: <Widget>[
-        Expanded(flex:0, child: ContainerNewContact()),
-        Expanded(flex:0, child: ContainerInfoContact()),
+        Expanded(flex:0, child: ContainerRequestContact()),
+        Expanded(flex:0,child:ContainerInfoRequest()),
         Expanded(flex:0,child: ContainerBotons(),)
           ],
         ),
@@ -32,47 +34,78 @@ class _BodyAddContactsState extends State<BodyAddContacts> {
   }
 }
 
-class ContainerNewContact extends StatefulWidget {
-  @override
-  _ContainerNewContactState createState() => _ContainerNewContactState();
-}
 
-class _ContainerNewContactState extends State<ContainerNewContact> {
-  @override
-  Widget build(BuildContext context) {
+class ContainerRequestContact extends StatelessWidget{
 
+@override
+
+Widget build(BuildContext context) {
+    // TODO: implement build
     return Column(
+      children: <Widget>[
+
+        //PAY COLUMN
+        Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(15),
             child: Text(
-              'New Contact',
+              'Request',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-              ) ,),
+              ) ,
             ),
-          ],
-        );
-    }
+          ),
+        ],
+      ),
+
+        //NOM COLUMN
+
+        Column(
+          children: <Widget>[
+             Card(
+          color: Colors.white,
+            child: ListTile(
+                title: Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundColor: Colors.red,
+                      backgroundImage: AssetImage('assets/usuario.jpg'),
+                    ),
+
+                    Text('          Lucia Fernandez',
+                      textAlign: TextAlign.center,
+                      
+                    ),
+                  ],
+                ),
+              ),
+             ),
+          ], 
+          
+        ),
+
+      ],
+    );
+  }
+
 }
 
-class ContainerInfoContact extends StatefulWidget{
-
+class ContainerInfoRequest extends StatefulWidget {
   @override
-  _ContainerInfoContactState createState() => _ContainerInfoContactState();
-
+  _ContainerInfoRequestState createState() => _ContainerInfoRequestState();
 }
 
-class _ContainerInfoContactState extends State<ContainerInfoContact>{
-
-@override
+class _ContainerInfoRequestState extends State<ContainerInfoRequest>{
+  
+  @override
 
 Widget build(BuildContext context) {
   
-  final TextEditingController nomCtrl = TextEditingController();
-  final TextEditingController cognomCtrl = TextEditingController();
+  final TextEditingController asuntoCtrl = TextEditingController();
+  final TextEditingController cantidadCtrl = TextEditingController();
   
     return Column(
       children: <Widget>[
@@ -80,7 +113,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Name',
+                  'Concept',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -97,7 +130,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Name contact',
+                        labelText: 'Concept',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -108,7 +141,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Surname',
+                  'Money',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -125,7 +158,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Surname Contact',
+                        labelText: 'Money',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -161,7 +194,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                 onPressed: (){},
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Accept'),
+                    child: Text('Send'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
@@ -179,7 +212,6 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                     color: Colors.red,
                     onPressed: (){
                       Navigator.pop(context);
-
                     },
                     textColor: Colors.white,
                     child: Container(
