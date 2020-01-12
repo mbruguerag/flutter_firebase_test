@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/contactdata.dart';
 import 'package:flutter/rendering.dart';
@@ -28,8 +27,8 @@ class _BodyEventsState extends State<BodyEvents> {
         Expanded(flex:0, child: ContainerInfoEvent()),
         Expanded(flex:1, child: ContainerMiembros()),
         Expanded(flex:1, child: ContainerSearchMiembros()),
-        Expanded(flex:6, child: SearchMembers()),
-        Expanded(flex:2,child: ContainerBotons(),)
+        Expanded(flex:3, child: SearchMembers()),
+        Expanded(flex:0,child: ContainerBotons(),)
           ],
         ),
       ),
@@ -54,7 +53,7 @@ class _ContainerEventState extends State<ContainerEvent> {
           Container(
             padding: EdgeInsets.all(15),
             child: Text(
-              'Eventos',
+              'Events',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -92,7 +91,7 @@ class _ContainerInfoEventState extends State<ContainerInfoEvent> {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Descripcion',
+                  'Description',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -109,7 +108,7 @@ class _ContainerInfoEventState extends State<ContainerInfoEvent> {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'descripción evento...',
+                        labelText: 'event...',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -127,7 +126,7 @@ class _ContainerInfoEventState extends State<ContainerInfoEvent> {
                 width: 120,
                     padding: EdgeInsets.all(14),
                     child: Text(
-                        'Cantidad',
+                        'Money',
                          style: TextStyle(
                          fontSize: 15 ),
                         ),
@@ -167,7 +166,7 @@ class ContainerMiembros extends StatelessWidget{
           Container(
             padding: EdgeInsets.only(left: 14.0, bottom: 5.0),
             child: Text(
-              'Miembros',
+              'Members',
               style: TextStyle(
                 fontSize: 20,
                 ) ,
@@ -285,42 +284,47 @@ class _ContainerBotonsState extends State<ContainerBotons> {
   @override
   Widget build(BuildContext context) {
     return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           
           //columna Add
           Column(
-            children: <Widget>[
-
-              Container(
-                width: 160,
-                padding: EdgeInsets.all(14),
-                child: RaisedButton(
-                  color: Colors.green,
-                  textColor: Colors.white,
-                  child: Text("Accept",),
-                  onPressed: null,
-                ),
-            ),
-
-          ],
+            
+            children:<Widget>[
+              
+              SizedBox(height: 20,width: 80,),
+              RaisedButton(
+                color: Colors.green,
+                onPressed: (){},
+                textColor: Colors.white,
+                  child: Container(
+                    child: Text('Accept'),
+                    padding: EdgeInsets.all(10.0),
+                 ),      
+              ),
+            ],
+          
         ),
       
          //columna cancel 
           Column(
             children: <Widget>[
 
-              Container(
-                width: 160,
-                padding: EdgeInsets.all(14),
-                child: RaisedButton(
-                  child: Text("Cancel"),
-                  onPressed: null,
-
+                SizedBox(height: 20,width: 80,),
+                Container(
+                  child: RaisedButton(
+                    color: Colors.red,
+                    onPressed: (){},
+                    textColor: Colors.white,
+                    child: Container(
+                      child: Text('Cancel'),
+                      padding: EdgeInsets.all(10.0),
+                    ),      
+                  ),
                 ),
+              ],
             ),
-            ],
-          ),
                 
         ],
     );

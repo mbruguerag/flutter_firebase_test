@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-AppBar headeraddcontacts() {
+AppBar headerpaycontacts() {
   return AppBar(
     backgroundColor: Colors.white,
           title: Padding(

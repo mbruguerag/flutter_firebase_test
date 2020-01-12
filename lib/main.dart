@@ -1,13 +1,10 @@
-
-//import 'package:firebase/pages/ContactPage.dart';
-import 'package:firebase/AddContactPage.dart';
-import 'package:firebase/pages/appbars/appbarcontacts.dart';
-import 'package:firebase/pages/bodies/bodyaddcontacts.dart';
-import 'package:firebase/pages/bodies/bodycontacts.dart';
-import 'package:firebase/pages/bodies/bodyprofile.dart';
+import 'package:firebase/pages/PayContact.dart';
+import 'package:firebase/pages/ProfileContact.dart';
+import 'package:firebase/pages/RequestContact.dart';
+import 'package:firebase/pages/LogIn.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/pages/Inicio.dart';
-import 'package:firebase/pages/appbars/appbaraddcontacs.dart';
+import 'package:firebase/pages/AddContact.dart';
 
 
 
@@ -19,13 +16,16 @@ class Monefy extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.white),
-      home: Inicio(),
-      /*routes: {
+      home: LogIn(),
 
-        '/' :(context) => headercontacts(),
-        '/add' : (context) => BodyProfile(),
-        //'/deletecontact' : (context) => BodyDeleteContact(),
-      },*/
+      //initialRoute: LogIn(),
+      routes: <String,WidgetBuilder>{
+        
+        '/pay':(context)=> PayContact(),
+        '/request':(context)=> RequestContact(),
+        '/inicio' : (context) => Inicio(),
+        '/add' : (context) => AddContact(),
+      },
          );
   }
 }
