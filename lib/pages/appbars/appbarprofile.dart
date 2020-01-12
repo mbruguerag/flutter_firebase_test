@@ -16,11 +16,12 @@ AppBar headerprofile() {
             IconButton(
               onPressed: (){},
               icon: Icon(Icons.exit_to_app),
+
               color: Colors.black,
             ),
           ],
           title: Padding(
-            padding: const EdgeInsets.only(left:115),
+            padding: const EdgeInsets.only(left:59),
             child: Image.asset('assets/monefylogo.jpg', scale:1.5),
           ),
          elevation: 0.0,
