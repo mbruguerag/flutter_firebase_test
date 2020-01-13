@@ -1,61 +1,13 @@
 //import 'package:flutter/gestures.dart';
+import 'package:firebase/services/auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase/contactdata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class Operaciones extends StatefulWidget {
-  @override
-  _OperacionesState createState() => _OperacionesState();
-}
-
-class _OperacionesState extends State<Operaciones> {
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: TabBar(
-          tabs: [
-            Tab(text: 'Operaciones'),
-            Tab(text: 'Pendientes'),
-          ],
-        ),
-        body: TabBarView(
-          children: [
-            ListView(
-              children: const <Widget>[
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-              ],
-            ),
-            ListView(
-              children: const <Widget>[
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-                Card(child: ListTile(title: Text('One-line ListTile'))),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class BodyProfile extends StatefulWidget {
+  
   @override
   _BodyProfileState createState() => _BodyProfileState();
 }
@@ -74,11 +26,13 @@ class _BodyProfileState extends State<BodyProfile> {
 }
 
 class Containerperfil extends StatefulWidget {
+  
   @override
   _ContainerperfilState createState() => _ContainerperfilState();
 }
 
 class _ContainerperfilState extends State<Containerperfil> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -144,7 +98,8 @@ class _ContainerperfilState extends State<Containerperfil> {
                   Icons.exit_to_app,
                   
                 ),
-                onPressed: (){
+                onPressed: () async {
+                  await _auth.signOut();
                   Navigator.of(context).pushNamed('/login');
                 },
               ),
@@ -156,3 +111,56 @@ class _ContainerperfilState extends State<Containerperfil> {
     );
   }
 }
+
+
+class Operaciones extends StatefulWidget {
+  @override
+  _OperacionesState createState() => _OperacionesState();
+}
+
+class _OperacionesState extends State<Operaciones> {
+  
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: TabBar(
+          tabs: [
+            Tab(text: 'Operaciones'),
+            Tab(text: 'Pendientes'),
+          ],
+        ),
+        body: TabBarView(
+          children: [
+            ListView(
+              children: const <Widget>[
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+              ],
+            ),
+            ListView(
+              children: const <Widget>[
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+                Card(child: ListTile(title: Text('One-line ListTile'))),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
