@@ -8,7 +8,7 @@ AppBar headerevents() {
             onPressed: (){
             },
             icon: Icon(Icons.add),
-            color: Colors.black,
+            color: Colors.transparent,
           ) ,
 
           title: Padding(
