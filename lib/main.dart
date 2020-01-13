@@ -1,5 +1,6 @@
 import 'package:firebase/pages/PayContact.dart';
 import 'package:firebase/pages/RequestContact.dart';
+import 'package:firebase/pages/RegisterContact.dart';
 import 'package:firebase/pages/LogIn.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/pages/Inicio.dart';
@@ -23,6 +24,8 @@ class Monefy extends StatelessWidget {
         '/request':(context)=> RequestContact(),
         '/inicio' : (context) => Inicio(),
         '/add' : (context) => AddContact(),
+        '/register':(context) => RegisterContact(),
+        
       },
          );
   }

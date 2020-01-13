@@ -85,7 +85,7 @@ class _ContainerperfilState extends State<Containerperfil> {
       children: <Widget>[
         Expanded(flex: 3, child: Container(color: Colors.white)),
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Container(
             child: Padding(
               padding: const EdgeInsets.only(top: 20.0),

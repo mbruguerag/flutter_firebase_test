@@ -21,7 +21,9 @@ class _BodyLogInState extends State<BodyLogIn> {
       crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
       children: <Widget>[
         Expanded(flex:0, child: ContainerLogIn()),
-        Expanded(flex:0,child: ContainerBotoLogIn(),)
+        Expanded(flex:0,child: ContainerBotoLogIn()),
+        Expanded (flex:0, child: Register()),
+
           ],
         ),
       ),
@@ -120,6 +122,41 @@ class _ContainerBotoLogInState extends State<ContainerBotoLogIn> {
   Widget build(BuildContext context) {
     
         
+          //columna Login
+         return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        
+            children:<Widget>[
+              
+              SizedBox(height: 20,width: 80,),
+              RaisedButton(
+                color: Colors.blue,
+                onPressed: (){
+                  Navigator.pushNamed(context, '/inicio');
+                },
+                textColor: Colors.white,
+                  child: Container(
+                    child: Text('LogIn'),
+                    padding: EdgeInsets.all(10.0),
+                 ),      
+              ),
+            ],
+          
+        );   
+  }
+}
+
+class Register extends StatefulWidget {
+  @override
+  _Register createState() => _Register();
+}
+
+class _Register extends State<Register> {
+  @override
+  Widget build(BuildContext context) {
+    
+        
           //columna Add
          return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -129,13 +166,13 @@ class _ContainerBotoLogInState extends State<ContainerBotoLogIn> {
               
               SizedBox(height: 20,width: 80,),
               RaisedButton(
-                color: Colors.grey,
+                color: Colors.blue,
                 onPressed: (){
-                  Navigator.pushNamed(context, '/inicio');
+                  Navigator.pushNamed(context, '/register');
                 },
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('LogIn'),
+                    child: Text('Create your count'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
