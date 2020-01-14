@@ -100,7 +100,7 @@ class _ContainerperfilState extends State<Containerperfil> {
                 ),
                 onPressed: () async {
                   await _auth.signOut();
-                  Navigator.of(context).pushNamed('/login');
+                  //Navigator.of(context).pushNamed('/login');
                 },
               ),
               alignment: Alignment.topRight,
