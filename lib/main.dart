@@ -19,7 +19,7 @@ class Monefy extends StatelessWidget {
     return StreamProvider<User>.value(
       value: AuthService().user,
       child: MaterialApp(
-        home: Inicio(),
+        home: Wrapper(),
         //initialRoute: '/login',
         //routes: <String,WidgetBuilder>{
         //'/login':(context)=>LogIn(),
