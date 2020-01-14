@@ -139,7 +139,7 @@ class _LogInState extends State<LogIn> {
                           },
                           textColor: Colors.white,
                           child: Container(
-                            child: Text('Crear un compte'),
+                            child: Text('Crear un compte.'),
                             padding: EdgeInsets.all(10.0),
                           ),
                         ),
