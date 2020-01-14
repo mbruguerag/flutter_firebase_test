@@ -1,13 +1,11 @@
-//import 'package:flutter/gestures.dart';
+import 'package:flutter/gestures.dart';
 import 'package:firebase/services/auth.dart';
 import 'package:flutter/material.dart';
-
 import 'package:firebase/contactdata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class BodyProfile extends StatefulWidget {
-  
   @override
   _BodyProfileState createState() => _BodyProfileState();
 }
@@ -26,7 +24,6 @@ class _BodyProfileState extends State<BodyProfile> {
 }
 
 class Containerperfil extends StatefulWidget {
-  
   @override
   _ContainerperfilState createState() => _ContainerperfilState();
 }
@@ -37,9 +34,12 @@ class _ContainerperfilState extends State<Containerperfil> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Expanded(flex: 3, child: Container(color: Colors.white)),
         Expanded(
-          flex: 4,
+          flex: 3,
+          child: Container(color: Colors.white),
+        ),
+        Expanded(
+          flex: 3,
           child: Container(
             child: Padding(
               padding: const EdgeInsets.only(top: 20.0),
@@ -96,7 +96,6 @@ class _ContainerperfilState extends State<Containerperfil> {
               child: IconButton(
                 icon: Icon(
                   Icons.exit_to_app,
-                  
                 ),
                 onPressed: () async {
                   await _auth.signOut();
@@ -112,14 +111,12 @@ class _ContainerperfilState extends State<Containerperfil> {
   }
 }
 
-
 class Operaciones extends StatefulWidget {
   @override
   _OperacionesState createState() => _OperacionesState();
 }
 
 class _OperacionesState extends State<Operaciones> {
-  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

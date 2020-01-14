@@ -12,10 +12,12 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
+  String error = '';
 
-  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     final TextEditingController usernameCtrl = TextEditingController();
@@ -29,27 +31,29 @@ class _LogInState extends State<LogIn> {
         ),
         elevation: 0.0,
       ),
-      body: Center(
-        child: Container(
-          height: 600,
-          width: 350,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.grey[300],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge
-            children: <Widget>[
-              Expanded(
-                flex: 0,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.only(bottom: 30),
-                      child: Image.asset('assets/usuario.jpg', scale: 4.0),
+      body: SingleChildScrollView(
+              child: Center(
+          child: Container(
+            height: 600,
+            width: 350,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[300],
+            ),
+            child: Form(
+              key:_formKey,
+                        child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Expanded(
+                    flex: 7,
+                    child: Container(
+                      child: Image.asset('assets/usuario.jpg', scale: 3.0),
                     ),
-                    Container(
-                      width: 180,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
                       padding: EdgeInsets.all(14),
                       child: Text(
                         'E-mail',
@@ -58,12 +62,16 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 200,
-                      padding: EdgeInsets.all(5),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      width: 180,
                       child: SizedBox(
                         height: 50.0,
                         child: TextFormField(
+                           validator: (val) =>
+                                  val.isEmpty ? 'Enter your email' : null,
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -76,8 +84,10 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 180,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
                       padding: EdgeInsets.all(14),
                       child: Text(
                         'Contrassenya',
@@ -86,12 +96,16 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 200,
-                      padding: EdgeInsets.all(5),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Container(
                       child: SizedBox(
                         height: 50.0,
                         child: TextFormField(
+                          validator: (val) => val.length < 6
+                                  ? 'Mínim 6 caracters'
+                                  : null,
                           onChanged: (val) {
                             setState(() => password = val);
                           },
@@ -105,49 +119,69 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  ),
+                  Expanded(
+                    flex: 9,
+                    child: Column(
                       children: <Widget>[
-                        SizedBox(
-                          height: 20,
-                          width: 80,
+                        Expanded(
+                          flex: 1,
+                          child: Container(),
                         ),
-                        RaisedButton(
-                          color: Colors.blue,
-                          onPressed: () async {
-                            dynamic result = await _auth.signInAnon();
-                            if (result == null) {
-                              print("Error d'identificació");
-                            } else {
-                              print('Identificació correcta');
-                              print(password);
-                            }
-                          },
-                          textColor: Colors.white,
-                          child: Container(
-                            child: Text('Entrar'),
-                            padding: EdgeInsets.all(10.0),
+                        Expanded(
+                          flex: 7,
+                          child: RaisedButton(
+                            color: Colors.blue,
+                            onPressed: () async {
+                               if (_formKey.currentState.validate()) {
+                                  dynamic result =
+                                      await _auth.signInWithEmailAndPassword(
+                                          email, password);
+                                          
+                                  if (result == null) {
+                                   setState(() => error ="Error d'autenticació");
+                                  }
+                                }
+                            },
+                            textColor: Colors.white,
+                            child: Container(
+                              child: Text('Entrar'),
+                              padding: EdgeInsets.all(10.0),
+                            ),
                           ),
                         ),
-                        RaisedButton(
-                          color: Colors.blue,
-                          onPressed: () {
-                            //  Navigator.pushNamed(context, '/register');
-                            widget.toggleView();
-                          },
-                          textColor: Colors.white,
-                          child: Container(
-                            child: Text('Crear un usuari'),
-                            padding: EdgeInsets.all(10.0),
+                        Expanded(
+                          flex: 2,
+                          child: Container(child:Text(
+                              error,
+                              style: TextStyle(color: Colors.red, fontSize: 14.0),
+                            )),
+                        ),
+                        Expanded(
+                          flex: 7,
+                          child: RaisedButton(
+                            color: Colors.blue,
+                            onPressed: () {
+                              //  Navigator.pushNamed(context, '/register');
+                              widget.toggleView();
+                            },
+                            textColor: Colors.white,
+                            child: Container(
+                              child: Text('Crear un usuari'),
+                              padding: EdgeInsets.all(10.0),
+                            ),
                           ),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(),
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
