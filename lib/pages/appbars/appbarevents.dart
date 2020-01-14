@@ -18,6 +18,3 @@ AppBar headerevents() {
          elevation: 0.0,
   );
 }
-
-
-
