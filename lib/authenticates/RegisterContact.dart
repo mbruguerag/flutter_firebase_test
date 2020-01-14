@@ -107,7 +107,7 @@ class _RegisterContactState extends State<RegisterContact> {
                       child: SizedBox(
                         height: 50.0,
                         child: TextFormField(
-                          validator: (val)=> val.isEmpty ? 'Enter your username': null,
+                          validator: (val)=> val.isEmpty ? 'Entra el teu nom.': null,
                           onChanged: (val) {
                             setState(() => username = val);
                           },
