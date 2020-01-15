@@ -91,6 +91,7 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
             color: Colors.white60,
             child: ListTile(
               leading: IconButton(
+                onPressed: (){},
                 icon: Icon(Icons.chevron_left),
                 tooltip: 'Request',),
                 title: Row(
@@ -107,6 +108,7 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
                 trailing: IconButton(
                   icon: Icon(Icons.chevron_right),
                   tooltip:'Pay',
+                  onPressed: (){},
                 ),
               ),
              ),
