@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/contactdata.dart';
 import 'package:flutter/rendering.dart';
 
@@ -91,7 +91,7 @@ class _ContainerInfoEventState extends State<ContainerInfoEvent> {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Description',
+                  'Descripció',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -126,7 +126,7 @@ class _ContainerInfoEventState extends State<ContainerInfoEvent> {
                 width: 120,
                     padding: EdgeInsets.all(14),
                     child: Text(
-                        'Money',
+                        'Import',
                          style: TextStyle(
                          fontSize: 15 ),
                         ),
@@ -166,7 +166,7 @@ class ContainerMiembros extends StatelessWidget{
           Container(
             padding: EdgeInsets.only(left: 14.0, bottom: 5.0),
             child: Text(
-              'Members',
+              'Membres',
               style: TextStyle(
                 fontSize: 20,
                 ) ,
@@ -188,7 +188,7 @@ class _ContainerSearchMiembrosState extends State<ContainerSearchMiembros> {
     return Container(  
     child: TextField(
       decoration: InputDecoration(
-        hintText: 'Search ...'
+        hintText: 'Buscar ...'
       ),
     ),
   );
@@ -299,7 +299,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                 onPressed: (){},
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Accept'),
+                    child: Text('Acceptar'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
@@ -318,7 +318,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                     onPressed: (){},
                     textColor: Colors.white,
                     child: Container(
-                      child: Text('Cancel'),
+                      child: Text('Cancel·lar'),
                       padding: EdgeInsets.all(10.0),
                     ),      
                   ),

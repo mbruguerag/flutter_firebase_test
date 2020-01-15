@@ -225,7 +225,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                 },
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Add Contact'),
+                    child: Text('Afegir Contacte'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),

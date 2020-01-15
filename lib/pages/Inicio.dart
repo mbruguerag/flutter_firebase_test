@@ -44,12 +44,12 @@ class _InicioState extends State<Inicio> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.people,) ,
-            title: Text('Contacts'),
+            title: Text('Contactes'),
             
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text('Profile'),
+            title: Text('Perfil'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.event),

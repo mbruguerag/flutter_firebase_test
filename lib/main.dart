@@ -20,6 +20,7 @@ class Monefy extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
         home: Wrapper(),
+/*
         //initialRoute: '/login',
         routes: <String,WidgetBuilder>{
         //'/login':(context)=>LogIn(),
@@ -28,9 +29,15 @@ class Monefy extends StatelessWidget {
         //'/inicio' : (context) => Inicio(),
        '/add' : (context) => AddContact(),
         //'/register':(context) => RegisterContact(),
+*/
+
+        routes: <String, WidgetBuilder>{
+          '/pay': (context) => PayContact(),
+          '/request': (context) => RequestContact(),
+          '/add': (context) => AddContact(),
 
         },
       ),
     );
-  }   
+  }
 }

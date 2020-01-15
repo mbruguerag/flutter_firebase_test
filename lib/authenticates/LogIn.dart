@@ -32,7 +32,7 @@ class _LogInState extends State<LogIn> {
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
-              child: Center(
+        child: Center(
           child: Container(
             height: 600,
             width: 350,
@@ -41,8 +41,8 @@ class _LogInState extends State<LogIn> {
               color: Colors.grey[300],
             ),
             child: Form(
-              key:_formKey,
-                        child: Column(
+              key: _formKey,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Expanded(
@@ -70,8 +70,8 @@ class _LogInState extends State<LogIn> {
                       child: SizedBox(
                         height: 50.0,
                         child: TextFormField(
-                           validator: (val) =>
-                                  val.isEmpty ? 'Enter your email' : null,
+                          validator: (val) =>
+                              val.isEmpty ? 'Enter your email' : null,
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -103,9 +103,8 @@ class _LogInState extends State<LogIn> {
                       child: SizedBox(
                         height: 50.0,
                         child: TextFormField(
-                          validator: (val) => val.length < 6
-                                  ? 'Mínim 6 caracters'
-                                  : null,
+                          validator: (val) =>
+                              val.length < 6 ? 'Mínim 6 caracters' : null,
                           onChanged: (val) {
                             setState(() => password = val);
                           },
@@ -133,15 +132,15 @@ class _LogInState extends State<LogIn> {
                           child: RaisedButton(
                             color: Colors.blue,
                             onPressed: () async {
-                               if (_formKey.currentState.validate()) {
-                                  dynamic result =
-                                      await _auth.signInWithEmailAndPassword(
-                                          email, password);
-                                          
-                                  if (result == null) {
-                                   setState(() => error ="Error d'autenticació");
-                                  }
+                              if (_formKey.currentState.validate()) {
+                                dynamic result =
+                                    await _auth.signInWithEmailAndPassword(
+                                        email, password);
+                                if (result == null) {
+                                  setState(
+                                      () => error = "Error d'autenticació");
                                 }
+                              }
                             },
                             textColor: Colors.white,
                             child: Container(
@@ -152,17 +151,17 @@ class _LogInState extends State<LogIn> {
                         ),
                         Expanded(
                           flex: 2,
-                          child: Container(child:Text(
-                              error,
-                              style: TextStyle(color: Colors.red, fontSize: 14.0),
-                            )),
+                          child: Container(
+                              child: Text(
+                            error,
+                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                          )),
                         ),
                         Expanded(
                           flex: 7,
                           child: RaisedButton(
                             color: Colors.blue,
                             onPressed: () {
-                              //  Navigator.pushNamed(context, '/register');
                               widget.toggleView();
                             },
                             textColor: Colors.white,
