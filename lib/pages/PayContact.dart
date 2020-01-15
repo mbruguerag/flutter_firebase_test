@@ -54,7 +54,7 @@ Widget build(BuildContext context) {
           Container(
             padding: EdgeInsets.all(15),
             child: Text(
-              'Pay',
+              'Pagar',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Concept',
+                  'Concepte',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -132,7 +132,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Concept',
+                        labelText: 'Concepte',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -143,7 +143,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Money',
+                  'Import',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -160,7 +160,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Money',
+                        labelText: 'Import',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -197,7 +197,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                 onPressed: (){},
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Send'),
+                    child: Text('Enviar'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
@@ -218,7 +218,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                     },
                     textColor: Colors.white,
                     child: Container(
-                      child: Text('Cancel'),
+                      child: Text('Cancel·lar'),
                       padding: EdgeInsets.all(10.0),
                     ),      
                   ),

@@ -99,7 +99,6 @@ class _ContainerperfilState extends State<Containerperfil> {
                 ),
                 onPressed: () async {
                   await _auth.signOut();
-                  //Navigator.of(context).pushNamed('/login');
                 },
               ),
               alignment: Alignment.topRight,
@@ -124,8 +123,8 @@ class _OperacionesState extends State<Operaciones> {
       child: Scaffold(
         appBar: TabBar(
           tabs: [
-            Tab(text: 'Operaciones'),
-            Tab(text: 'Pendientes'),
+            Tab(text: 'Operacions'),
+            Tab(text: 'Pendents'),
           ],
         ),
         body: TabBarView(

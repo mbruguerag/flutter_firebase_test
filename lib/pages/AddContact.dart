@@ -53,7 +53,7 @@ class _ContainerNewContactState extends State<ContainerNewContact> {
           Container(
             padding: EdgeInsets.all(15),
             child: Text(
-              'New Contact',
+              'Nou contacte',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Name',
+                  'Nom',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -103,7 +103,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Name contact',
+                        labelText: 'Nom',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -114,7 +114,7 @@ Widget build(BuildContext context) {
                 width: 180,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Surname',
+                  'Cognom',
                   style: TextStyle(
                   fontSize: 15,
                 ) ,
@@ -131,7 +131,7 @@ Widget build(BuildContext context) {
                       cursorColor: Colors.black87,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Surname Contact',
+                        labelText: 'Cognom',
                         fillColor: Colors.black87,
                         ),
                       ),
@@ -167,7 +167,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                 onPressed: (){},
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Accept'),
+                    child: Text('Acceptar'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
@@ -185,11 +185,10 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                     color: Colors.red,
                     onPressed: (){
                       Navigator.pop(context);
-
                     },
                     textColor: Colors.white,
                     child: Container(
-                      child: Text('Cancel'),
+                      child: Text('Cancel·lar'),
                       padding: EdgeInsets.all(10.0),
                     ),      
                   ),
