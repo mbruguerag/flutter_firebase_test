@@ -1,6 +1,7 @@
 import 'package:firebase/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase/basedades.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -34,8 +35,8 @@ Future signInWithEmailAndPassword(String email, String password)async{
       return _userFromFirebaseUser(user);
 
      //crea un doc nou
-      //await DatabaseService(uid: user.uid).updateUserData('24352456P','aidg@gmail.com', 'Carla Fernandez',300);
-      //return _userFromFirebaseUser(user);
+      await DatabaseService(uid: user.uid).updateUserData('24352456P','aidg@gmail.com', 'Carla Fernandez',300);
+      return _userFromFirebaseUser(user);
 
 
     }catch(e){
