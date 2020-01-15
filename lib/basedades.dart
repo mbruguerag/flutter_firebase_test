@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase/logins.dart';
 
 class DatabaseService{
 
@@ -7,23 +8,39 @@ class DatabaseService{
   DatabaseService({this.uid});
   //base de dades
 
-  final CollectionReference loginsCollection = Firestore.instance.collection('logins');
+  final CollectionReference LoginsCollection = Firestore.instance.collection('Logins');
 
-  Future updateUserData(String dni, String mail, String password, String username, int saldo) async{
-    return await loginsCollection.document(uid).setData({
+  Future updateUserData(String dni, String mail, String username, int saldo) async{
+    return await LoginsCollection.document(uid).setData({
       'dni': dni,
       'mail':mail,
-      'password':password,
       'username': username,
       'saldo' : saldo,
 
       
     });
   }
+  
+  //User list d'snapshot
+List<Logins> _loginsListFromSnapshot(QuerySnapshot snapshot){
+  return snapshot.documents.map((doc){
+    return Logins(
+      dni: doc.data['dni'] ?? '',
+      mail: doc.data['mail'] ?? '',
+      username: doc.data['username'] ?? '',
+      saldo: doc.data['saldo'] ?? 0 ,
 
-  //streams
-  Stream<QuerySnapshot> get logins {
-    return loginsCollection.snapshots();
+    );
+  }).toList();
+} 
+ 
+  
+
+//streams  
+  Stream<List<Logins>> get logins {
+    return LoginsCollection.snapshots()
+    .map(_loginsListFromSnapshot); 
+
 
   }
 }

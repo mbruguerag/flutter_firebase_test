@@ -33,6 +33,11 @@ Future signInWithEmailAndPassword(String email, String password)async{
       FirebaseUser user = result.user;
       return _userFromFirebaseUser(user);
 
+     //crea un doc nou
+      //await DatabaseService(uid: user.uid).updateUserData('24352456P','aidg@gmail.com', 'Carla Fernandez',300);
+      //return _userFromFirebaseUser(user);
+
+
     }catch(e){
       print(e.toString());
       return null;

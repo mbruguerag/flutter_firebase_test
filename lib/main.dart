@@ -21,15 +21,15 @@ class Monefy extends StatelessWidget {
       child: MaterialApp(
         home: Wrapper(),
         //initialRoute: '/login',
-        //routes: <String,WidgetBuilder>{
+        routes: <String,WidgetBuilder>{
         //'/login':(context)=>LogIn(),
-        //'/pay':(context)=> PayContact(),
-        //'/request':(context)=> RequestContact(),
+       '/pay':(context)=> PayContact(),
+       '/request':(context)=> RequestContact(),
         //'/inicio' : (context) => Inicio(),
-        //'/add' : (context) => AddContact(),
+       '/add' : (context) => AddContact(),
         //'/register':(context) => RegisterContact(),
 
-        //},
+        },
       ),
     );
   }   
