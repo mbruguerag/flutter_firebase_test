@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Logins{
 
-  final String dni;
-  final String username;
+  final double saldo;
   final String mail;
-  final int saldo;
+  final String username;
+  final String password;
 
-  Logins({this.dni,this.username,this.mail,this.saldo});
+  Logins({this.saldo,this.mail,this.username,this.password});
 
 
 }

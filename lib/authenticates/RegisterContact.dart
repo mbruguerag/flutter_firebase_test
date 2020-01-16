@@ -12,7 +12,8 @@ class RegisterContact extends StatefulWidget {
 }
 
 class _RegisterContactState extends State<RegisterContact> {
-  String email = '';
+  double saldo = 0; 
+  String mail = '';
   String username = '';
   String password = '';
   String error = '';
@@ -31,176 +32,216 @@ class _RegisterContactState extends State<RegisterContact> {
         ),
         elevation: 0.0,
       ),
-      body: Center(
-        child: Container(
-          height: 600,
-          width: 350,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.grey[300],
-          ),
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            height: 600,
+            width: 350,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[300],
+            ),
             child: Form(
               key: _formKey,
-              child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.stretch, // centrem la imatge
+                          child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Expanded(
-                    flex: 0,
+                    flex: 2,
+                    child: Container(
+                      child: Center(
+                        child: Text(
+                          'Register',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: Container(
+                      child: Image.asset('assets/usuario.jpg', scale: 0.5),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        'Saldo',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: TextFormField(
+                       keyboardType: TextInputType.number,
+                      validator: (val) => val.isEmpty ? "Entri saldo" : null,
+                      onChanged: (val) {
+
+                        setState(() => saldo = double.parse(val));
+                      
+                      },
+                       cursorColor: Colors.black87,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Saldo',
+                        fillColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        'E-mail',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: TextFormField(
+                      validator: (val) => val.isEmpty ? "Entri l'E-mail" : null,
+                      onChanged: (val) {
+                        setState(() => mail = val);
+                      },
+                      //obscureText: true,
+                      cursorColor: Colors.black87,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'E-mail',
+                        fillColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        'Nom',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: TextFormField(
+                      validator: (val) => val.isEmpty ? 'Introduïr nom' : null,
+                      onChanged: (val) {
+                       setState(() => username = val);
+                     },
+                      //obscureText: true,
+                      cursorColor: Colors.black87,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Nom',
+                        fillColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        'Contrassenya',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: TextFormField(
+                      validator: (val) =>
+                          val.length < 6 ? 'Mínim 6 caracters' : null,
+                      onChanged: (val) {
+                        setState(() => password = val);
+                      },
+                      obscureText: true,
+                      cursorColor: Colors.black87,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Contrassenya',
+                        fillColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 15,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Container(
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(bottom: 30),
-                          child: Image.asset('assets/usuario.jpg', scale: 5.0),
-                        ),
-                        Container(
-                          width: 180,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
-                            'E-mail',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          // width: 200,
-                          padding: EdgeInsets.all(5),
+                        Expanded(
+                          flex: 5,
                           child: SizedBox(
-                            height: 45.0,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Enter your email' : null,
-                              onChanged: (val) {
-                                setState(() => email = val);
-                              },
-                              //obscureText: true,
-                              cursorColor: Colors.black87,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'E-mail',
-                                fillColor: Colors.black87,
-                              ),
-                            ),
+                            height: 15,
+                            width: 80,
                           ),
                         ),
-                        Container(
-                          width: 180,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
-                            'Nom',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          //width: 200,
-                          padding: EdgeInsets.all(5),
-                          child: SizedBox(
-                            height: 45.0,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.isEmpty ? 'Introduïr nom' : null,
-                              onChanged: (val) {
-                                setState(() => username = val);
-                              },
-                              //obscureText: true,
-                              cursorColor: Colors.black87,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Nom',
-                                fillColor: Colors.black87,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 180,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
-                            'Contrassenya',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          //width: 200,
-                          padding: EdgeInsets.all(5),
-                          child: SizedBox(
-                            height: 54.0,
-                            child: TextFormField(
-                              validator: (val) =>
-                                  val.length < 6 ? 'Mínim 6 caracters' : null,
-                              onChanged: (val) {
-                                setState(() => password = val);
-                              },
-                              obscureText: true,
-                              cursorColor: Colors.black87,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Contrassenya',
-                                fillColor: Colors.black87,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            SizedBox(
-                              height: 15,
-                              width: 80,
-                            ),
-                            RaisedButton(
-                              color: Colors.blue,
-                              onPressed: () async {
-                                if (_formKey.currentState.validate()) {
-                                  dynamic result = await _auth.registerWithEmailAndPassword(email, password);
-                                  if( result == null){
-                                    setState(() => error = 'E-mail no vàlid' );
-                                  }
-                                  
+                        Expanded(
+                          flex: 8,
+                          child: RaisedButton(
+                            color: Colors.blue,
+                            onPressed: () async {
+                              if (_formKey.currentState.validate()) {
+                                dynamic result =
+                                    await _auth.registerWithEmailAndPassword(
+                                        saldo, mail, username, password);
+                                    
+                                if (result == null) {
+                                  setState(() => error = 'Credencials incorrectes');
                                 }
-                              },
-                              textColor: Colors.white,
-                              child: Container(
-                                child: Text('Registrar-se'),
-                                padding: EdgeInsets.all(10.0),
-                              ),
+                              }
+                            },
+                            textColor: Colors.white,
+                            child: Container(
+                              child: Text('Registrar-se'),
                             ),
-                            RaisedButton(
-                              color: Colors.blue,
-                              onPressed: () {
-                                //Navigator.pushNamed(context, '/register');
-                                widget.toggleView();
-                              },
-                              textColor: Colors.white,
-                              child: Container(
-                                child: Text('Cancel·lar'),
-                                padding: EdgeInsets.all(10.0),
-                              ),
-                            ),
-                            SizedBox(height: 12.0),
-                            Text(
-                              error,
-                              style:
-                                  TextStyle(color: Colors.red, fontSize: 14.0),
-                            )
-                          ],
+                          ),
                         ),
+                        Expanded(
+                          flex: 3,
+                          child: Container(),
+                        ),
+                        Expanded(
+                          flex: 8,
+                          child: RaisedButton(
+                            color: Colors.blue,
+                            onPressed: () {
+                              widget.toggleView();
+                            },
+                            textColor: Colors.white,
+                            child: Container(
+                              child: Text('Cancel·lar'),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Container(),
+                        ),
+                        Expanded(
+                            flex: 5,
+                            child: Text(
+                              error,
+                              style: TextStyle(color: Colors.red, fontSize: 14.0),
+                            )),
                       ],
                     ),
                   ),

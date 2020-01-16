@@ -14,7 +14,9 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-  String email = '';
+  //double saldo = 0 ;
+  String mail = '';
+  //String username = '';
   String password = '';
   String error = '';
 
@@ -71,9 +73,9 @@ class _LogInState extends State<LogIn> {
                         height: 50.0,
                         child: TextFormField(
                           validator: (val) =>
-                              val.isEmpty ? 'Enter your email' : null,
+                              val.isEmpty ? 'Entri el seu correu' : null,
                           onChanged: (val) {
-                            setState(() => email = val);
+                            setState(() => mail = val);
                           },
                           cursorColor: Colors.black87,
                           decoration: InputDecoration(
@@ -135,7 +137,7 @@ class _LogInState extends State<LogIn> {
                               if (_formKey.currentState.validate()) {
                                 dynamic result =
                                     await _auth.signInWithEmailAndPassword(
-                                        email, password);
+                                         mail, password);
                                 if (result == null) {
                                   setState(
                                       () => error = "Error d'autenticació");

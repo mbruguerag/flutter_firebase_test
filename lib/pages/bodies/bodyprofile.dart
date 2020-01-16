@@ -1,9 +1,13 @@
-
 import 'package:firebase/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/contactdata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:firebase/basedades.dart';
+import 'package:firebase/services/auth.dart';
+import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase/basedades.dart';
 
 class BodyProfile extends StatefulWidget {
   @override
@@ -13,7 +17,23 @@ class BodyProfile extends StatefulWidget {
 class _BodyProfileState extends State<BodyProfile> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return StreamProvider<QuerySnapshot>.value(
+     // value:  DatabaseService().ogins,
+      child: Columnaprofile(),
+    );
+  }
+}
+
+class Columnaprofile extends StatefulWidget {
+  @override
+  _ColumnaprofileState createState() => _ColumnaprofileState();
+}
+
+class _ColumnaprofileState extends State<Columnaprofile> {
+  @override
+  Widget build(BuildContext context) {
+    final Logins = Provider.of<QuerySnapshot>(context);
+   return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge user
       children: <Widget>[
         Expanded(flex: 4, child: Containerperfil()),
@@ -32,6 +52,7 @@ class _ContainerperfilState extends State<Containerperfil> {
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
+    //final Logins = Provider.of<QuerySnapshot>(context);
     return Row(
       children: <Widget>[
         Expanded(
@@ -66,7 +87,7 @@ class _ContainerperfilState extends State<Containerperfil> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       child: Text(
-                        'nom user',
+                        'username',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -76,7 +97,7 @@ class _ContainerperfilState extends State<Containerperfil> {
                   ),
                   Container(
                     child: Text(
-                      '300 €',
+                      '300',
                       style: TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
@@ -121,7 +142,9 @@ class _OperacionesState extends State<Operaciones> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: TabBar(
+        appBar: TabBar(  indicatorColor: Colors.black38,
+          labelColor: Colors.black87,
+          unselectedLabelColor:Colors.black38, 
           tabs: [
             Tab(text: 'Operacions'),
             Tab(text: 'Pendents'),

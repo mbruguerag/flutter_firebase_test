@@ -1,72 +1,63 @@
 import 'package:firebase/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase/basedades.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   //create user obj based on firebaseuser
-  User _userFromFirebaseUser(FirebaseUser user){
+  User _userFromFirebaseUser(FirebaseUser user) {
     return user != null ? User(uid: user.uid) : null;
   }
   //auth change user stream
-  Stream <User> get user{
-    return _auth.onAuthStateChanged
-      .map(_userFromFirebaseUser);
+  Stream<User> get user {
+    return _auth.onAuthStateChanged.map(_userFromFirebaseUser);
   }
-  
-  //sign  in anon
-  Future signInAnon() async{
-    try{
-     AuthResult result = await _auth.signInAnonymously();
-     FirebaseUser user = result.user;
-     return _userFromFirebaseUser(user);
-    }catch(e) { 
+
+  Future signInAnon() async {
+    try {
+      AuthResult result = await _auth.signInAnonymously();
+      FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch (e) {
       print(e.toString());
       return null;
     }
   }
- 
- //sign in with email & password
-Future signInWithEmailAndPassword(String email, String password)async{
+
+   //sign in with email & password
+Future signInWithEmailAndPassword( String mail,  String password)async{
     try{
-      AuthResult result = await _auth.signInWithEmailAndPassword(email: email,  password: password);
+      AuthResult result = await _auth.signInWithEmailAndPassword(email: mail,  password: password);
       FirebaseUser user = result.user;
-      return _userFromFirebaseUser(user);
-
-     //crea un doc nou
-      await DatabaseService(uid: user.uid).updateUserData('24352456P','aidg@gmail.com', 'Carla Fernandez',300);
-      return _userFromFirebaseUser(user);
-
+     return _userFromFirebaseUser(user);
 
     }catch(e){
       print(e.toString());
       return null;
     }
   }
-
-
 
 //register with email & password
-  Future registerWithEmailAndPassword(String email, String password)async{
-    try{
-      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email,  password: password);
+  Future registerWithEmailAndPassword(
+      double saldo, String mail, String username, String password) async {
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(email: mail, password: password);
       FirebaseUser user = result.user;
+      
+      await DatabaseService(uid: user.uid).updateUserData(saldo,mail,username,password);
       return _userFromFirebaseUser(user);
-
-    }catch(e){
+      
+    } catch (e) {
       print(e.toString());
       return null;
     }
   }
-  
-    
 
   //sign out
   Future signOut() async {
-    try{
+    try {
       return await _auth.signOut();
-    }catch (e){
+    } catch (e) {
       print(e.toString());
       return null;
     }

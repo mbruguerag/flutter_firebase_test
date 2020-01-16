@@ -25,35 +25,32 @@ class _BodyContactsState extends State<BodyContacts> {
   Widget build(BuildContext context) {
         final db = Firestore.instance;
   
-    return StreamProvider<List<Logins>>.value(
-        value: DatabaseService().logins,
-          child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
         children: <Widget>[
-          /*Container(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  hintText: 'Search Contacts...'
-                ),
-              ),
-            ),
+    /*Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          controller: _controller,
+          decoration: InputDecoration(
+            hintText: 'Search Contacts...'
           ),
+        ),
+      ),
+    ),
         
         Container(
-          child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text('Contacts',
-            style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            ),
-          ),
+    child: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Text('Contacts',
+      style: TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      ),
+    ),
         ),
         ),
-
       final logins = Provider.of<List<Logins>>(context);
        logins.forEach((logins){
        print(logins.dni);
@@ -63,14 +60,13 @@ class _BodyContactsState extends State<BodyContacts> {
      });
         ListView()
         */
-          Expanded(flex:1, child: ContainerSearch()),
-          Expanded(flex: 0, child: ContainerContacts()),
-          Expanded(flex:7, child: BodySearchContacts()),
-          Expanded(flex:2, child: ContainerBotons()),
+    Expanded(flex:1, child: ContainerSearch()),
+    Expanded(flex: 0, child: ContainerContacts()),
+    Expanded(flex:7, child: BodySearchContacts()),
+    Expanded(flex:2, child: ContainerBotons()),
 
         ],
-        ),
-      );
+        );
   }
 }
 class BodySearchContacts extends StatefulWidget {
@@ -92,10 +88,10 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
   Widget build(BuildContext context)  {
     final logins = Provider.of<List<Logins>>(context);
      logins.forEach((logins){
-       print(logins.dni);
+       print(logins.saldo);
        print(logins.username);
        print(logins.mail);
-       print(logins.saldo);
+       print(logins.password);
      });
     
  
@@ -261,7 +257,6 @@ class BodyContacts extends StatelessWidget{
            return Center(child: CircularProgressIndicator(),
            );
          }
-
          List<Contact> contacts = snapshot.data;
          return ListView.builder(
            itemCount: contacts.length,
@@ -275,12 +270,9 @@ class BodyContacts extends StatelessWidget{
   }
   
 }
-
 class ContactTile extends StatelessWidget{
   final Contact contact;
-
   const ContactTile(this.contact);
-
   @override
   Widget build(BuildContext context){
     return ListTile(
@@ -299,5 +291,4 @@ class ContactTile extends StatelessWidget{
     )
     );
   }
-}
-*/
+}*/
