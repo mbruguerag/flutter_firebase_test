@@ -38,7 +38,7 @@ class _LogInState extends State<LogIn> {
             width: 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.grey[300],
+              color: Colors.white,
             ),
             child: Form(
               key: _formKey,
@@ -48,7 +48,7 @@ class _LogInState extends State<LogIn> {
                   Expanded(
                     flex: 7,
                     child: Container(
-                      child: Image.asset('assets/usuario.jpg', scale: 3.0),
+                      child: Image.asset('assets/welcome_illustration.jpg', scale: 3.0),
                     ),
                   ),
                   Expanded(
@@ -130,7 +130,7 @@ class _LogInState extends State<LogIn> {
                         Expanded(
                           flex: 7,
                           child: RaisedButton(
-                            color: Colors.blue,
+                            color: Colors.yellow[600],
                             onPressed: () async {
                               if (_formKey.currentState.validate()) {
                                 dynamic result =
@@ -160,7 +160,7 @@ class _LogInState extends State<LogIn> {
                         Expanded(
                           flex: 7,
                           child: RaisedButton(
-                            color: Colors.blue,
+                            color: Colors.grey[700],
                             onPressed: () {
                               widget.toggleView();
                             },
