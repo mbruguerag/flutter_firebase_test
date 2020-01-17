@@ -99,7 +99,7 @@ class _BodyProfileState extends State<BodyProfile> {
                                                 .username, //userData.username,
                                             style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 32,
+                                              fontSize: 30,
                                               fontWeight: FontWeight.w800
                                             ),
                                           ),
@@ -117,7 +117,7 @@ class _BodyProfileState extends State<BodyProfile> {
                                           child: Text(
                                             userData.saldo.toString() + '€',
                                             style: TextStyle(
-                                              fontSize: 42,
+                                              fontSize: 40,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
