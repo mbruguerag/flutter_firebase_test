@@ -12,24 +12,26 @@ class _BodyEventsState extends State<BodyEvents> {
   
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: 600,
-        width: 350,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.grey[300],
-        ),
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
-      children: <Widget>[
-        Expanded(flex:0, child: ContainerEvent()),
-        Expanded(flex:0, child: ContainerInfoEvent()),
-        Expanded(flex:1, child: ContainerMiembros()),
-        Expanded(flex:1, child: ContainerSearchMiembros()),
-        Expanded(flex:3, child: SearchMembers()),
-        Expanded(flex:0,child: ContainerBotons(),)
-          ],
+    return SingleChildScrollView(
+          child: Center(
+        child: Container(
+          height: 600,
+          width: 350,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.grey[300],
+          ),
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
+        children: <Widget>[
+          Expanded(flex:0, child: ContainerEvent()),
+          Expanded(flex:0, child: ContainerInfoEvent()),
+          Expanded(flex:1, child: ContainerMiembros()),
+          Expanded(flex:1, child: ContainerSearchMiembros()),
+          Expanded(flex:3, child: SearchMembers()),
+          Expanded(flex:0,child: ContainerBotons(),)
+            ],
+          ),
         ),
       ),
     );
@@ -80,80 +82,80 @@ class _ContainerInfoEventState extends State<ContainerInfoEvent> {
   Widget build(BuildContext context) {
 
     return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      //columna Descripcio
+      
+      Column(
         children: <Widget>[
-          //columna Descripcio
-          
-          Column(
-            children: <Widget>[
 
-              Container(
-                width: 180,
+          Container(
+            width: 180,
+            padding: EdgeInsets.all(14),
+            child: Text(
+              'Descripció',
+              style: TextStyle(
+              fontSize: 15,
+            ) ,
+          ),
+        ),
+
+          Container(
+            width: 200,
+            padding: EdgeInsets.all(5),
+            child: SizedBox(
+                  height: 50.0,
+                  child: TextFormField(
+                  //obscureText: true,
+                  cursorColor: Colors.black87,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'event...',
+                    fillColor: Colors.black87,
+                    ),
+                  ),
+                ),
+        ),
+
+      ],
+    ),
+        
+     //columna quantitat 
+      Column(
+        children: <Widget>[
+
+          Container(
+            width: 120,
                 padding: EdgeInsets.all(14),
                 child: Text(
-                  'Descripció',
-                  style: TextStyle(
-                  fontSize: 15,
-                ) ,
-              ),
+                    'Import',
+                     style: TextStyle(
+                     fontSize: 15 ),
+                    ),
             ),
 
-              Container(
-                width: 200,
+            Container(
+              width: 120,
                 padding: EdgeInsets.all(5),
                 child: SizedBox(
-                      height: 50.0,
-                      child: TextFormField(
-                      //obscureText: true,
-                      cursorColor: Colors.black87,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'event...',
-                        fillColor: Colors.black87,
-                        ),
-                      ),
+                  height: 50.0,
+                  child: TextFormField(
+                  //obscureText: true,
+                  cursorColor: Colors.black87,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: '€',
+                    fillColor: Colors.black87,
                     ),
+                  ),
+                ),
             ),
-
-          ],
-        ),
-      
-         //columna quantitat 
-          Column(
-            children: <Widget>[
-
-              Container(
-                width: 120,
-                    padding: EdgeInsets.all(14),
-                    child: Text(
-                        'Import',
-                         style: TextStyle(
-                         fontSize: 15 ),
-                        ),
-                ),
-
-                Container(
-                  width: 120,
-                    padding: EdgeInsets.all(5),
-                    child: SizedBox(
-                      height: 50.0,
-                      child: TextFormField(
-                      //obscureText: true,
-                      cursorColor: Colors.black87,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: '€',
-                        fillColor: Colors.black87,
-                        ),
-                      ),
-                    ),
-                ),
-                
-            ],
-          ),
-                
+            
         ],
-    );
+      ),
+            
+    ],
+      );
   }
 }
 

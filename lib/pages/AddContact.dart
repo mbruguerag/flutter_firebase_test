@@ -5,34 +5,36 @@ class AddContact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-    backgroundColor: Colors.white,
-          title: Padding(
-            padding: const EdgeInsets.only(left:59),
-            child: Image.asset('assets/monefylogo.jpg', scale: 1.5,),
-          ),
-         elevation: 0.0,
-  ),
-      body: Center(
-      child: Container(
-        height: 600,
-        width: 350,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.grey[300],
-        ),
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
-      children: <Widget>[
-        Expanded(flex:0, child: ContainerNewContact()),
-        Expanded(flex:0, child: ContainerInfoContact()),
-        Expanded(flex:0,child: ContainerBotons(),)
-          ],
-        ),
+        appBar: AppBar(
+      backgroundColor: Colors.white,
+      title: Padding(
+        padding: const EdgeInsets.only(left:59),
+        child: Image.asset('assets/monefylogo.jpg', scale: 1.5,),
       ),
+     elevation: 0.0,
+  ),
+        body: SingleChildScrollView(
+                  child: Center(
+          child: Container(
+    height: 600,
+    width: 350,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: Colors.grey[300],
     ),
-      
-    );
+    child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
+          children: <Widget>[
+    Expanded(flex:0, child: ContainerNewContact()),
+    Expanded(flex:0, child: ContainerInfoContact()),
+    Expanded(flex:0,child: ContainerBotons(),)
+      ],
+    ),
+          ),
+      ),
+        ),
+        
+      );
   }
 }
 
