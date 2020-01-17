@@ -57,14 +57,10 @@ class _BodyProfileState extends State<BodyProfile> {
                                     //imatge usuari
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
-                                        image: AssetImage('assets/usuario.jpg'),
+                                        image: AssetImage('assets/profile_picture.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                       shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 4,
-                                      ),
                                     ),
                                   ),
                                   
@@ -103,7 +99,7 @@ class _BodyProfileState extends State<BodyProfile> {
                                                 .username, //userData.username,
                                             style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 40,
+                                              fontSize: 32,
                                               fontWeight: FontWeight.w800
                                             ),
                                           ),
@@ -114,14 +110,14 @@ class _BodyProfileState extends State<BodyProfile> {
                                   Expanded(
                                     child: Padding(
                                       padding: const EdgeInsets.only(left: 8, right:8, top:8),
-                                      child: Container(color: Colors.black12,
+                                      child: Container(color: Colors.white,
                                         width: 110,
                                         height: 80,
                                         child: Center(
                                           child: Text(
                                             userData.saldo.toString() + '€',
                                             style: TextStyle(
-                                              fontSize: 30,
+                                              fontSize: 42,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -135,7 +131,7 @@ class _BodyProfileState extends State<BodyProfile> {
                       length: 2,
                       child: Scaffold(
                         appBar: TabBar(
-                          indicatorColor: Colors.black38,
+                          indicatorColor: Colors.yellow[700],
                           labelColor: Colors.black87,
                           unselectedLabelColor: Colors.black38,
                           tabs: [
