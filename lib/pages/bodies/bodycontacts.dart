@@ -54,7 +54,7 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
       
         children: <Widget>[
           Card(
-          color: Colors.white60,
+          color: Colors.white,
             child: ListTile(
               leading: IconButton(
                 icon: Icon(Icons.chevron_left),
@@ -88,7 +88,7 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
              ),
 
              Card(
-            color: Colors.white60,
+            color: Colors.white,
             child: ListTile(
               leading: IconButton(
                 onPressed: (){},
@@ -115,7 +115,7 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
 
             Card(
               
-            color: Colors.white60,
+            color: Colors.white,
             child: ListTile(
               leading: IconButton(
                 icon: Icon(Icons.chevron_left),
@@ -217,7 +217,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
         children: <Widget>[              
               SizedBox(height: 20,width: 80,),
               RaisedButton(
-                color: Colors.green,
+                color: Colors.yellow[700],
                 onPressed: (){
                   Navigator.pushNamed(context, '/add');
 
