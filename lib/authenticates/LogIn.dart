@@ -26,7 +26,7 @@ class _LogInState extends State<LogIn> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 95),
           child: Image.asset('assets/monefylogo.jpg', scale: 1.5),
         ),
         elevation: 0.0,
@@ -78,7 +78,7 @@ class _LogInState extends State<LogIn> {
                           cursorColor: Colors.black87,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'E-mail',
+                            labelText: 'example@gmail.com',
                             fillColor: Colors.black87,
                           ),
                         ),
@@ -130,7 +130,7 @@ class _LogInState extends State<LogIn> {
                         Expanded(
                           flex: 7,
                           child: RaisedButton(
-                            color: Colors.yellow[600],
+                            color: Colors.yellow[700],
                             onPressed: () async {
                               if (_formKey.currentState.validate()) {
                                 dynamic result =

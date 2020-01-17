@@ -29,7 +29,7 @@ class _RegisterContactState extends State<RegisterContact> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 95),
           child: Image.asset('assets/monefylogo.jpg', scale: 1.5),
         ),
         elevation: 0.0,
@@ -41,7 +41,7 @@ class _RegisterContactState extends State<RegisterContact> {
             width: 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.grey[300],
+              color: Colors.white,
             ),
             child: Form(
               key: _formKey,
@@ -65,7 +65,7 @@ class _RegisterContactState extends State<RegisterContact> {
                   Expanded(
                     flex: 5,
                     child: Container(
-                      child: Image.asset('assets/usuario.jpg', scale: 0.5),
+                      child: Image.asset('assets/welcome_illustration.jpg', scale: 0.5),
                     ),
                   ),
                   Expanded(
@@ -199,7 +199,7 @@ class _RegisterContactState extends State<RegisterContact> {
                         Expanded(
                           flex: 8,
                           child: RaisedButton(
-                            color: Colors.blue,
+                            color: Colors.yellow[700],
                             onPressed: () async {
                               if (_formKey.currentState.validate()) {
                                 dynamic result =
@@ -224,7 +224,7 @@ class _RegisterContactState extends State<RegisterContact> {
                         Expanded(
                           flex: 8,
                           child: RaisedButton(
-                            color: Colors.blue,
+                            color: Colors.grey,
                             onPressed: () {
                               widget.toggleView();
                             },
