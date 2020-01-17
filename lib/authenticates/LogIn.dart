@@ -14,9 +14,7 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-  //double saldo = 0 ;
   String mail = '';
-  //String username = '';
   String password = '';
   String error = '';
 

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Logins{
+class Login{
 
   final double saldo;
   final String mail;
@@ -8,11 +8,8 @@ class Logins{
   final String password;
   final List<String> contactes;
   final List<String> moviments;
-  Logins({this.saldo,this.mail,this.username,this.password, this.contactes, this.moviments});
+  Login({this.saldo,this.mail,this.username,this.password, this.contactes, this.moviments});
 
 
 }
 
-class Moviments{
-
-}

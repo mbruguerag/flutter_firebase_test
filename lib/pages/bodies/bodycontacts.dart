@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase/contactdata.dart';
 import 'package:flutter/rendering.dart';
-import 'package:firebase/logins.dart';
-import 'package:firebase/basedades.dart';
-import 'package:provider/provider.dart';
-
 
 
 
@@ -14,59 +12,21 @@ class BodyContacts extends StatefulWidget {
 }
 
 class _BodyContactsState extends State<BodyContacts> {
-    //TextEditingController _controller;
-   //@override
-  //void initState() {
-    //_controller = TextEditingController();
-    //super.initState();
-
-
   @override
   Widget build(BuildContext context) {
         final db = Firestore.instance;
   
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
-        children: <Widget>[
-    /*Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextField(
-          controller: _controller,
-          decoration: InputDecoration(
-            hintText: 'Search Contacts...'
-          ),
-        ),
-      ),
-    ),
-        
-        Container(
-    child: Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Text('Contacts',
-      style: TextStyle(
-      fontSize: 22,
-      fontWeight: FontWeight.bold,
-      ),
-    ),
-        ),
-        ),
-      final logins = Provider.of<List<Logins>>(context);
-       logins.forEach((logins){
-       print(logins.dni);
-       print(logins.username);
-       print(logins.mail);
-       print(logins.saldo);
-     });
-        ListView()
-        */
-    Expanded(flex:1, child: ContainerSearch()),
-    Expanded(flex: 0, child: ContainerContacts()),
-    Expanded(flex:7, child: BodySearchContacts()),
-    Expanded(flex:2, child: ContainerBotons()),
+      crossAxisAlignment: CrossAxisAlignment.stretch, // centrem la imatge 
+      children: <Widget>[
+        Expanded(flex:1, child: ContainerSearch()),
+        Expanded(flex: 0, child: ContainerContacts()),
+        Expanded(flex:7, child: BodySearchContacts()),
+        Expanded(flex:2, child: ContainerBotons()),
 
-        ],
-        );
+
+      ],
+    );
   }
 }
 class BodySearchContacts extends StatefulWidget {
@@ -86,18 +46,10 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
 
  @override
   Widget build(BuildContext context)  {
-    final logins = Provider.of<List<Logins>>(context);
-     logins.forEach((logins){
-       print(logins.saldo);
-       print(logins.username);
-       print(logins.mail);
-       print(logins.password);
-     });
-    
- 
+     
     return ListView.builder(
 
-       itemCount: logins.length,
+      itemCount: contactes.length,
       itemBuilder: (context,i)=> new Column(
       
         children: <Widget>[
@@ -118,7 +70,7 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
                       backgroundImage: AssetImage('assets/usuario.jpg'),
                     ),
                     
-                    Text('carla',//${logins.dni},
+                    Text('          Lucia Fernandez',
                       textAlign: TextAlign.center,
                       
                     ),
@@ -128,14 +80,65 @@ class _BodySearchContactsState extends State<BodySearchContacts> {
                   icon: Icon(Icons.chevron_right),
                   tooltip:"Pay",
                   onPressed: (){
-                   Navigator.pushNamed(context, '/pay');
+                    Navigator.pushNamed(context, '/pay');
 
                   },
                 ),
               ),
              ),
 
-            
+             Card(
+            color: Colors.white60,
+            child: ListTile(
+              leading: IconButton(
+                onPressed: (){},
+                icon: Icon(Icons.chevron_left),
+                tooltip: 'Request',),
+                title: Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundColor: Colors.red,
+                      backgroundImage: AssetImage('assets/usuario.jpg'),
+                    ),
+                    Text('          Carles Sospedra',
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                trailing: IconButton(
+                  icon: Icon(Icons.chevron_right),
+                  tooltip:'Pay',
+                  onPressed: (){},
+                ),
+              ),
+             ),
+
+            Card(
+              
+            color: Colors.white60,
+            child: ListTile(
+              leading: IconButton(
+                icon: Icon(Icons.chevron_left),
+
+                tooltip: 'Request',
+                ),
+                title: Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundColor: Colors.red,
+                      backgroundImage: AssetImage('assets/usuario.jpg'),
+                    ),
+                    Text('          Sandra Gomez',
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                trailing: IconButton(
+                  icon: Icon(Icons.chevron_right),
+                  tooltip: 'Pay',
+                ),
+              ),
+             ),
             ],
             ) ,
 
@@ -221,7 +224,7 @@ class _ContainerBotonsState extends State<ContainerBotons> {
                 },
                 textColor: Colors.white,
                   child: Container(
-                    child: Text('Afegir Contacte'),
+                    child: Text('Add Contact'),
                     padding: EdgeInsets.all(10.0),
                  ),      
               ),
@@ -291,4 +294,5 @@ class ContactTile extends StatelessWidget{
     )
     );
   }
-}*/
+}
+*/

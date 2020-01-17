@@ -16,6 +16,8 @@ class _RegisterContactState extends State<RegisterContact> {
   String mail = '';
   String username = '';
   String password = '';
+  List<String> contactes = [];
+  List<String> moviments = [];
   String error = '';
 
   final AuthService _auth = AuthService();
@@ -202,7 +204,7 @@ class _RegisterContactState extends State<RegisterContact> {
                               if (_formKey.currentState.validate()) {
                                 dynamic result =
                                     await _auth.registerWithEmailAndPassword(
-                                        saldo, mail, username, password);
+                                        saldo, mail, username, password, contactes, moviments);
                                     
                                 if (result == null) {
                                   setState(() => error = 'Credencials incorrectes');
